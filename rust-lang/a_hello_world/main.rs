@@ -1,8 +1,8 @@
 // Calssic hello, world program
 // I will add an addition println! macro line
 
-// To compile: rustc main.rs
-// To run: ./main
+// compile: rustc main.rs
+//     run: ./main
 
 fn main() {
     println!("\n");
