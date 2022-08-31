@@ -1,6 +1,7 @@
 // Let's Get Rusty
 // Chapter 2 - Programming a guessing game in Rust
 
+use colored::*;
 use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
@@ -12,13 +13,11 @@ fn main() {
     // println!("The secret number is: {}", secret_number);
 
     loop {
-        println!("Please input your guess.");
+        println!("{}", "Please input your guess.".yellow());
 
         let mut guess = String::new();
     
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read line");
+        io::stdin().read_line(&mut guess).expect("Failed to read line");
     
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
@@ -28,10 +27,10 @@ fn main() {
         println!("You guessed: {guess}");
     
         match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
+            Ordering::Less => println!("{}", "Too small!".red()),
+            Ordering::Greater => println!("{}", "Too big!".red()),
             Ordering::Equal => {
-                println!("You win!");
+                println!("{}", "You win!".green().blink());
                 break;
             }
         }

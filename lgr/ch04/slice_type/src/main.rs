@@ -13,6 +13,13 @@ fn main() {
 
     s.clear();  // empty the string, making it equl to ""
 
+    // Now experiment wiht the dbg! macro
+    println!("Experimenting with the dbg! macro...");
+    let a = 2;
+    let b = dbg!(a * 2) + 1;
+    assert_eq!(b, 5);
+    let result = dbg!(1+1) + 3;
+    println!("The value of result is: {}", result);
 
 }
 
@@ -20,11 +27,7 @@ fn main() {
 fn first_word(s: &String) -> usize {
     let bytes = s.as_bytes();
 
-    dbg!(bytes[0]);
-    dbg!(bytes[1]);
-    dbg!(bytes[2]);
-    dbg!(bytes[3]);
-    dbg!(bytes[4]);
+    dbg!(bytes[0], bytes[1], bytes[2], bytes[3], bytes[4]);
 
     for (i, &item) in bytes.iter().enumerate() {
         dbg!(item);
@@ -35,5 +38,3 @@ fn first_word(s: &String) -> usize {
 
     s.len()
 }
-
-
