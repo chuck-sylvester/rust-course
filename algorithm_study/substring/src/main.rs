@@ -1,37 +1,39 @@
 // Find Substring algorithm
-// Determine whether or not string b can be found in string a
-//
+// Determine whether or not string b can be spelled from the letters in string a
 // Run program from command line with two input parameter, e.g.
-// $ cargo run string1 string2 
+// $ cargo run apple ape 
 
-use std::env;   // Rust standard library, process environment module
+// Silence some warnings (for now)
+#![allow(dead_code, unused_mut, unused_variables)]
+
+// Create local name bindings synonymous with some other path.
+// Usually used to shorten the path required to refer to a module item.
+// These declarations may appear in modules and blocks, usually at the top.
+//
+use std::env;   // Inspection and manipulation of the process’s environment
 
 fn main() {
-    println!("\nFind substring algorithm (start)");
+    println!("\n*** Enter function: main() ***");
 
     // Grab, validate, store string values entered by user from the environment
     let string1 = env::args().nth(1).expect("Please provide string 1 as the first command line value");
     let string2 = env::args().nth(2).expect("Please provide string 2 as the second command line value");
-    
     println!("{}, {}", string1, string2);
-    println!("{:?}, {:?}", string1, string2);
-
+    
     let length_1 = string1.len();
     let length_2 = string2.len();
-
     println!("The values of string1 and string2 are: {:?} ({} char) and {:?} ({} char)", string1, length_1, string2, length_2);
 
-    // Check to see if string1 contains string2
+    // Check to see if string1 contains string2 as a substring
     let mut rc = string1_contains_string2(&string1, &string2);
 
-    // Print result of function call
     if rc {
         println!("rc = true");
     } else {
         println!("rc = false");
     }
 
-    // Check to see if string1 can spell string2
+    // Check to see if the letters in string1 can be used to spell string2
     rc = string1_spells_string2(&string1, &string2);
 
     // Print result of function call
@@ -41,43 +43,32 @@ fn main() {
         println!("rc = false");
     }
 
-    println!("Find substring algorithm (end)\n");
+    println!("\n*** Exit function: main() ***");
 }
 
-// Algorithm to determine if string1 contains string2
+// Determine whether string1 contains string2
 fn string1_contains_string2(s1: &String, s2: &String) -> bool {
-    println!("Enter function: string1_contains_string2()");
-    true
-    /*
-    if a.contains(b) {
-        println!("{a} contains {b}");
-    } else {
-        println!("{a} does not contain {b}");
-    }
+    println!("\n*** Enter function: string1_contains_string2() ***");
 
-    if a.contains(c) {
-        println!("{a} contains {c}");
+    if s1.contains(s2) {
+        println!("{} contains {}", s1, s2);
+        true
     } else {
-        println!("{a} does not contain {c}");
+        println!("{} does not contain {}", s1, s2);
+        false
     }
-    */
 }
 
 // Algorithm to determine if the letters in string1 can spell string2 
 fn string1_spells_string2(s1: &String, s2: &String) -> bool {
-    println!("Enter function: string1_spells_string2()");
-    true
-    /*
-    if a.contains(b) {
-        println!("{a} contains {b}");
-    } else {
-        println!("{a} does not contain {b}");
-    }
+    println!("\n*** Enter function: string1_spells_string2() ***");
 
-    if a.contains(c) {
-        println!("{a} contains {c}");
-    } else {
-        println!("{a} does not contain {c}");
-    }
-    */
+    // Loop through each letter in s2 to see if it can be found in s1
+    // Do this by creating an inner loop with each value of s2 to iterate through s1
+    // For now, letters in s1 can be reused
+    // You may need to "parse" the strings to bytes
+ 
+    
+
+    true
 }
