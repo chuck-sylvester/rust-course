@@ -21,5 +21,7 @@ fn first_word(s: &String) -> usize {
         }
     }
 
+    println!("Hello")
+
     s.len()
 }
